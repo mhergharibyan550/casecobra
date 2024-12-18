@@ -7,7 +7,9 @@ import Stripe from "stripe";
 export async function POST(req: Request) {
   try {
     const body = await req.text();
+    console.log(body);
     const signature = (await headers()).get("stripe-signature");
+    console.log(signature);
 
     if (!signature) {
       return new Response("Invalid signature", { status: 400 });
