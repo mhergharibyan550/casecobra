@@ -1,12 +1,13 @@
 import { db } from "@/db";
 import { stripe } from "@/lib/stripe";
+import { NextApiRequest } from "next";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
-export async function POST(req: Request) {
+export async function POST(req: NextApiRequest) {
   try {
-    const body = await req.text();
+    const body = await buffer(req);
     const signature = (await headers()).get("stripe-signature");
 
     if (!signature) {
@@ -78,3 +79,19 @@ export async function POST(req: Request) {
     );
   }
 }
+
+const buffer = (req: NextApiRequest) => {
+  return new Promise<Buffer>((resolve, reject) => {
+    const chunks: Buffer[] = [];
+
+    req.on("data", (chunk: Buffer) => {
+      chunks.push(chunk);
+    });
+
+    req.on("end", () => {
+      resolve(Buffer.concat(chunks));
+    });
+
+    req.on("error", reject);
+  });
+};
