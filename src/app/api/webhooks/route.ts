@@ -6,9 +6,7 @@ import Stripe from "stripe";
 
 export async function POST(req: Request) {
   try {
-    console.log("Hello");
     const body = await req.text();
-    console.log(body);
     const signature = (await headers()).get("stripe-signature");
 
     if (!signature) {
@@ -22,7 +20,7 @@ export async function POST(req: Request) {
     );
 
     if (event.type === "checkout.session.completed") {
-      if (event.data.object.customer_details?.email) {
+      if (!event.data.object.customer_details?.email) {
         throw new Error("Missing user email");
       }
 
@@ -37,10 +35,10 @@ export async function POST(req: Request) {
         throw new Error("Invalid request metadata");
       }
 
-      const billingAddess = session.customer_details!.address;
-      const shippingAddess = session.shipping_details!.address;
+      const billingAddress = session.customer_details!.address;
+      const shippingAddress = session.shipping_details!.address;
 
-      await db.order.update({
+      const updatedOrder = await db.order.update({
         where: {
           id: orderId,
         },
@@ -49,21 +47,21 @@ export async function POST(req: Request) {
           shippingAddress: {
             create: {
               name: session.customer_details!.name!,
-              city: shippingAddess!.city!,
-              country: shippingAddess!.country!,
-              postalCode: shippingAddess!.postal_code!,
-              street: shippingAddess!.line1!,
-              state: shippingAddess!.state,
+              city: shippingAddress!.city!,
+              country: shippingAddress!.country!,
+              postalCode: shippingAddress!.postal_code!,
+              street: shippingAddress!.line1!,
+              state: shippingAddress!.state,
             },
           },
           billingAddress: {
             create: {
-              name: session.shipping_details!.name!,
-              city: billingAddess!.city!,
-              country: billingAddess!.country!,
-              postalCode: billingAddess!.postal_code!,
-              street: billingAddess!.line1!,
-              state: billingAddess!.state,
+              name: session.customer_details!.name!,
+              city: billingAddress!.city!,
+              country: billingAddress!.country!,
+              postalCode: billingAddress!.postal_code!,
+              street: billingAddress!.line1!,
+              state: billingAddress!.state,
             },
           },
         },
