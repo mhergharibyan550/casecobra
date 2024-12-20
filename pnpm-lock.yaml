@@ -12,7 +12,7 @@ importers:
         specifier: ^2.2.0
         version: 2.2.0(react-dom@19.0.0-rc-02c0e824-20241028(react@19.0.0-rc-02c0e824-20241028))(react@19.0.0-rc-02c0e824-20241028)
       '@kinde-oss/kinde-auth-nextjs':
-        specifier: ^2.4.4
+        specifier: ^2.2.4
         version: 2.4.4(@babel/core@7.26.0)(next@15.0.2(@babel/core@7.26.0)(react-dom@19.0.0-rc-02c0e824-20241028(react@19.0.0-rc-02c0e824-20241028))(react@19.0.0-rc-02c0e824-20241028))(react-dom@19.0.0-rc-02c0e824-20241028(react@19.0.0-rc-02c0e824-20241028))(react@19.0.0-rc-02c0e824-20241028)
       '@prisma/client':
         specifier: ^5.22.0
