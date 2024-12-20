@@ -31,7 +31,7 @@ const Page = () => {
         router.push(`/`);
       }
     }
-  }, [data]);
+  }, [data, configId, router]);
 
   return (
     <div className="w-full mt-24 flex justify-center">
