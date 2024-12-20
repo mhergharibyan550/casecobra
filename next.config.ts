@@ -4,11 +4,11 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: "/:path*", // Apply to all routes
+        source: "/:path*",
         headers: [
           {
             key: "Access-Control-Allow-Origin",
-            value: "https://casecobra-umber-five.vercel.app", // Replace with specific origin(s)
+            value: "https://casecobra-umber-five.vercel.app",
           },
           {
             key: "Access-Control-Allow-Methods",
