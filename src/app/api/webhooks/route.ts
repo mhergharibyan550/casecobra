@@ -92,14 +92,7 @@ export async function POST(req: Request) {
       });
     }
 
-    return NextResponse.json(
-      { result: event, ok: true },
-      {
-        headers: {
-          "Access-Control-Allow-Origin": "https://checkout.stripe.com",
-        },
-      }
-    );
+    return NextResponse.json({ result: event, ok: true });
   } catch (err) {
     console.error(err);
 
