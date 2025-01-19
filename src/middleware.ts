@@ -4,7 +4,7 @@ export default function middleware(request: NextRequest) {
   const corsOptions = {
     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
     "Access-Control-Allow-Headers":
-      "Content-Type, Authorization, rsc, next-router-prefetch",
+      "Content-Type, Authorization, rsc, next-router-prefetch,next-router-state-tree",
   };
 
   if (request.method === "OPTIONS") {
