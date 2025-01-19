@@ -4,6 +4,7 @@ const allowedOrigins = [
   "https://casecobra-umber-five.vercel.app/",
   "https://casecobra-umber-five.vercel.app/api/auth/login/",
   "https://casecobra-umber-five.vercel.app/auth-callback/",
+  "https://casecobra-umber-five.vercel.app/api/auth/logout/",
 ];
 
 const corsOptions = {
