@@ -3,7 +3,7 @@ import { type NextRequest, NextResponse } from "next/server";
 export default function middleware(request: NextRequest) {
   const corsOptions = {
     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type, Authorization",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization, rsc",
   };
 
   if (request.method === "OPTIONS") {
