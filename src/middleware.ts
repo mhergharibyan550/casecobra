@@ -1,18 +1,24 @@
-import { type NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export default function middleware(request: NextRequest) {
-  const corsOptions = {
-    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-    "Access-Control-Allow-Headers":
-      "Content-Type, Authorization, rsc, next-router-prefetch, next-router-state-tree, next-url",
-  };
+const allowedOrigins = [
+  "https://casecobra-umber-five.vercel.app/api/auth/login",
+  "https://casecobra-umber-five.vercel.app/auth-callback",
+];
 
-  if (request.method === "OPTIONS") {
+const corsOptions = {
+  "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization",
+};
+
+export function middleware(request: NextRequest) {
+  const origin = request.headers.get("origin") ?? "";
+  const isAllowedOrigin = allowedOrigins.includes(origin);
+
+  const isPreflight = request.method === "OPTIONS";
+
+  if (isPreflight) {
     const preflightHeaders = {
-      ...{
-        "Access-Control-Allow-Origin":
-          "https://casecobra-umber-five.vercel.app/api/auth/login",
-      },
+      ...(isAllowedOrigin && { "Access-Control-Allow-Origin": origin }),
       ...corsOptions,
     };
     return NextResponse.json({}, { headers: preflightHeaders });
@@ -20,10 +26,9 @@ export default function middleware(request: NextRequest) {
 
   const response = NextResponse.next();
 
-  response.headers.set(
-    "Access-Control-Allow-Origin",
-    "https://casecobra-umber-five.vercel.app/api/auth/login"
-  );
+  if (isAllowedOrigin) {
+    response.headers.set("Access-Control-Allow-Origin", origin);
+  }
 
   Object.entries(corsOptions).forEach(([key, value]) => {
     response.headers.set(key, value);
