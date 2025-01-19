@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const allowedOrigins = [
-  "https://casecobra-umber-five.vercel.app/api/auth/login",
-  "https://casecobra-umber-five.vercel.app/auth-callback",
+  "https://casecobra-umber-five.vercel.app/",
+  "https://casecobra-umber-five.vercel.app/api/auth/login/",
+  "https://casecobra-umber-five.vercel.app/auth-callback/",
 ];
 
 const corsOptions = {
