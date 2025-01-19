@@ -11,7 +11,7 @@ export default function middleware(request: NextRequest) {
     const preflightHeaders = {
       ...{
         "Access-Control-Allow-Origin":
-          "https://casecobra-umber-five.vercel.app/api/auth/logout",
+          "https://casecobra-umber-five.vercel.app/api/auth/login",
       },
       ...corsOptions,
     };
@@ -22,7 +22,7 @@ export default function middleware(request: NextRequest) {
 
   response.headers.set(
     "Access-Control-Allow-Origin",
-    "https://casecobra-umber-five.vercel.app/api/auth/logout"
+    "https://casecobra-umber-five.vercel.app/api/auth/login"
   );
 
   Object.entries(corsOptions).forEach(([key, value]) => {
