@@ -21,7 +21,7 @@ const Navbar = async () => {
           </Link>
 
           <div className="h-full flex items-center space-x-4">
-            <LoginLink>Login</LoginLink>
+            <LoginLink>Login </LoginLink>
             {user ? (
               <>
                 <Link
