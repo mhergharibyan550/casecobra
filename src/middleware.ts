@@ -9,7 +9,10 @@ export default function middleware(request: NextRequest) {
 
   if (request.method === "OPTIONS") {
     const preflightHeaders = {
-      ...{ "Access-Control-Allow-Origin": "*" },
+      ...{
+        "Access-Control-Allow-Origin":
+          "https://casecobra-umber-five.vercel.app/",
+      },
       ...corsOptions,
     };
     return NextResponse.json({}, { headers: preflightHeaders });
@@ -17,7 +20,10 @@ export default function middleware(request: NextRequest) {
 
   const response = NextResponse.next();
 
-  response.headers.set("Access-Control-Allow-Origin", "*");
+  response.headers.set(
+    "Access-Control-Allow-Origin",
+    "https://casecobra-umber-five.vercel.app/"
+  );
 
   Object.entries(corsOptions).forEach(([key, value]) => {
     response.headers.set(key, value);
