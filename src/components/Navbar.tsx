@@ -54,7 +54,6 @@ const Navbar = async () => {
             ) : (
               <>
                 <Link
-                  prefetch={false}
                   href="/api/auth/register"
                   className={buttonVariants({
                     size: "sm",
@@ -64,7 +63,6 @@ const Navbar = async () => {
                   Sign up
                 </Link>
                 <Link
-                  prefetch={false}
                   href="/api/auth/login"
                   className={buttonVariants({
                     size: "sm",
