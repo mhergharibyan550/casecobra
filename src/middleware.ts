@@ -1,15 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const allowedOrigins = [
-  "https://casecobra-umber-five.vercel.app/",
-  "https://casecobra-umber-five.vercel.app/api/auth/login/",
-  "https://casecobra-umber-five.vercel.app/auth-callback/",
-  "https://casecobra-umber-five.vercel.app/api/auth/logout/",
+  "https://casecobra-umber-five.vercel.app",
+  "https://casecobra-umber-five.vercel.app/api/auth/login",
+  "https://casecobra-umber-five.vercel.app/auth-callback",
+  "https://casecobra-umber-five.vercel.app/api/auth/logout",
+  "https://casecobravariant.kinde.com",
 ];
 
 const corsOptions = {
   "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type, Authorization",
+  "Access-Control-Allow-Headers":
+    "Content-Type, Authorization, rsc, next-router-prefetch, next-router-state-tree, next-url",
 };
 
 export function middleware(request: NextRequest) {
