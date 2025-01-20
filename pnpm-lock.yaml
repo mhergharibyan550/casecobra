@@ -51,7 +51,7 @@ importers:
         specifier: ^5.62.0
         version: 5.62.0(react@19.0.0-rc-02c0e824-20241028)
       '@uploadthing/react':
-        specifier: ^6.5.0
+        specifier: ^6.8.0
         version: 6.8.0(next@15.0.2(@babel/core@7.26.0)(react-dom@19.0.0-rc-02c0e824-20241028(react@19.0.0-rc-02c0e824-20241028))(react@19.0.0-rc-02c0e824-20241028))(react@19.0.0-rc-02c0e824-20241028)(uploadthing@6.13.3(@effect/platform@0.70.7(effect@3.4.8))(next@15.0.2(@babel/core@7.26.0)(react-dom@19.0.0-rc-02c0e824-20241028(react@19.0.0-rc-02c0e824-20241028))(react@19.0.0-rc-02c0e824-20241028))(tailwindcss@3.4.14))
       class-variance-authority:
         specifier: ^0.7.0
@@ -102,7 +102,7 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.14)
       uploadthing:
-        specifier: ^6.10.0
+        specifier: ^6.13.3
         version: 6.13.3(@effect/platform@0.70.7(effect@3.4.8))(next@15.0.2(@babel/core@7.26.0)(react-dom@19.0.0-rc-02c0e824-20241028(react@19.0.0-rc-02c0e824-20241028))(react@19.0.0-rc-02c0e824-20241028))(tailwindcss@3.4.14)
       zod:
         specifier: ^3.23.8
