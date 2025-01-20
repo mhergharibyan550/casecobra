@@ -210,7 +210,7 @@ const DesignConfigurator = ({
         >
           <div className="relative w-full h-full">
             <NextImage
-              src="https://fvmhwl31qo.ufs.sh/f/84477e7c-8bcb-4797-8f7f-4e76fe69984f-z4s41b.png"
+              src={imageUrl}
               fill
               alt="your image"
               className="pointer-events-none"
