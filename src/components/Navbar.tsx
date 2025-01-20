@@ -5,6 +5,8 @@ import { ArrowRight } from "lucide-react";
 import {
   getKindeServerSession,
   LoginLink,
+  LogoutLink,
+  RegisterLink,
 } from "@kinde-oss/kinde-auth-nextjs/server";
 
 const Navbar = async () => {
@@ -21,18 +23,17 @@ const Navbar = async () => {
           </Link>
 
           <div className="h-full flex items-center space-x-4">
-            <LoginLink>Login </LoginLink>
             {user ? (
               <>
-                <Link
-                  href="/api/auth/logout"
+                <LogoutLink
                   className={buttonVariants({
                     size: "sm",
                     variant: "ghost",
                   })}
                 >
                   Sign out
-                </Link>
+                </LogoutLink>
+
                 {isAdmin ? (
                   <Link
                     href="/dashboard"
@@ -57,24 +58,23 @@ const Navbar = async () => {
               </>
             ) : (
               <>
-                <Link
-                  href="/api/auth/register"
+                <RegisterLink
                   className={buttonVariants({
                     size: "sm",
                     variant: "ghost",
                   })}
                 >
                   Sign up
-                </Link>
-                <Link
-                  href="/api/auth/login"
+                </RegisterLink>
+
+                <LoginLink
                   className={buttonVariants({
                     size: "sm",
                     variant: "ghost",
                   })}
                 >
                   Login
-                </Link>
+                </LoginLink>
                 <div className="h-8 w-px bg-zinc-200 hidden sm:block" />
                 <Link
                   href="/configure/upload"
