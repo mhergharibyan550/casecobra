@@ -1,6 +1,6 @@
 # 🐍 CaseCobra
 
-[Visit CaseCobra](https://casecobra-umber-five.vercel.app/)
+🔗 [Visit CaseCobra](https://casecobra-umber-five.vercel.app/)
 
 **CaseCobra** is an online phone case store application built with Next.js, designed as a personal learning project. It features:
 
